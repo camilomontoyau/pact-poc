@@ -32,4 +32,12 @@ services:
       # Ngnix config below makes the app accessible on ports 443 and 80, while the Ruby application itself runs on port 9292
       PACT_BROKER_BASE_URL: 'https://localhost http://localhost http://localhost:9292 http://pact-broker:9292 https://host.docker.internal http://host.docker.internal http://host.docker.internal:9292'
 
-  
+  api: 
+    image: node:20.12.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/usr/src/app
+    working_dir: /usr/src/app
+    command: npm i && npm run dev
+      
