@@ -17,7 +17,9 @@ describe('Pact with myProvider', () => {
           },
           status: 200,
           body: { message: 'Hello World' },
-        }).given('there is a request to /api')
+        })
+
+      provider.given('there is a request to /api')
         .uponReceiving('a response from /api')
         .withRequest({
           method: 'GET',
