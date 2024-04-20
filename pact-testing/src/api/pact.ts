@@ -7,7 +7,7 @@ export const PROVIDER_NAME = 'myProvider';
 export const pactFile = path.resolve(`./${CONSUMER_NAME}-${PROVIDER_NAME}.json`);
 
 export const provider = new Pact({
-  dir: path.resolve(process.cwd(), 'pacts'),
+  dir: path.resolve(process.cwd()),
   logLevel: 'info',
   consumer: CONSUMER_NAME,
   provider: PROVIDER_NAME
