@@ -23,6 +23,27 @@
         },
         "status": 200
       }
+    },
+    {
+      "description": "a response from /api",
+      "providerStates": [
+        {
+          "name": "there is a request to /api"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api"
+      },
+      "response": {
+        "body": {
+          "message": "Hello from API"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
     }
   ],
   "metadata": {
