@@ -1,0 +1,43 @@
+{
+  "consumer": {
+    "name": "myConsumer"
+  },
+  "interactions": [
+    {
+      "description": "a response from /",
+      "providerStates": [
+        {
+          "name": "there is a request to /"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/"
+      },
+      "response": {
+        "body": {
+          "message": "Hello World"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.4.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.16",
+      "models": "1.1.19"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "myProvider"
+  }
+}

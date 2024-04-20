@@ -10,7 +10,7 @@ export const provider = new Pact({
   dir: path.resolve(process.cwd(), 'pacts'),
   logLevel: 'info',
   consumer: CONSUMER_NAME,
-  provider: PROVIDER_NAME
+  provider: PROVIDER_NAME,
 });
 
 export const consumerVersion = '1.0.0';
