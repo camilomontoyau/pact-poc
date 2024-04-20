@@ -6,17 +6,30 @@ type HttpClientArgs = {
   PORT?: number
 }
 
+type HttpClientOptions = {
+  method: string
+  headers?: Record<string, string>
+  body?: any
+}
+
 export const httpClient = async ({ ROUTE, method, body, headers, PORT }: HttpClientArgs) => {
+  const options: HttpClientOptions = {
+    method,
+  }
+
+  if (body) {
+    options.body = JSON.stringify(body)
+  }
+
+  if (headers) {
+    options.headers = {
+      ...headers
+    }
+  }
+  
   try {
-    const response = await fetch(`http://localhost:${PORT}${ROUTE}`, {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-        ...headers
-      },
-      body: body ? JSON.stringify(body) : undefined
-    })
-    let finalResponse: string | Record<string, unknown>
+    const response = await fetch(`http://localhost:${PORT}${ROUTE}`, options);
+    let finalResponse: string | Record<string, unknown>;
     try {
       finalResponse = await response.json()
     } catch (error) {
