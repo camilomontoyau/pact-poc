@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 app.get('/', (_req, res) => {
-  res.status(200).send('Hello World');
+  res.status(200).json({ message: 'Hello World' });
 });
 
 app.get('/api', (_req, res) => {
