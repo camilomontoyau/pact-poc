@@ -58,6 +58,7 @@ describe('Pact with myProvider', () => {
           method: 'GET',
           PORT: mockServer.port,
         });
+        console.log('response: ', response);
         return expect(response).toEqual({ 
           status: 200, 
           body: { 
