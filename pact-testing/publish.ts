@@ -1,5 +1,5 @@
-const publisher = require('@pact-foundation/pact-node');
-const path = require('path');
+import publisher from '@pact-foundation/pact-node';
+import path from 'path';
 const tags = ['dev'];
 
 // config for pact broker
