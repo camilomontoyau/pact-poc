@@ -29,7 +29,7 @@ describe('Pact with myProvider', () => {
     });
 
     it('sends a request to / according to contract', () => {
-      return provider.executeTest(async (mockServer) => {
+      return provider.executeTest((mockServer) => {
         return expect(httpClient({
           ROUTE: '/',
           method: 'GET',
