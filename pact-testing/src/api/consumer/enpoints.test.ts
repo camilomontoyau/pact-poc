@@ -12,6 +12,9 @@ describe('Pact with myProvider', () => {
           path: '/',
         })
         .willRespondWith({
+          headers: {
+            "Content-Type": "application/json"
+          },
           status: 200,
           body: 'Hello World',
         }).given('there is a request to /api')
@@ -21,6 +24,9 @@ describe('Pact with myProvider', () => {
           path: '/api',
         })
         .willRespondWith({
+          headers: {
+            "Content-Type": "application/json"
+          },
           status: 200,
           body: { 
             message: 'Hello from API' 
