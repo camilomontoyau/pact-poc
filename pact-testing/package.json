@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit -i",
-    "publish": "tsx ./publish.ts"
+    "pact:publish": "tsx ./publish.ts",
+    "pact:can-i-deplot": "tsx ./can-i-deploy.ts"
+
   },
   "keywords": [],
   "author": "",
