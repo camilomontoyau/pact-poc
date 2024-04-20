@@ -1,7 +1,5 @@
-import pact from '@pact-foundation/pact';
+import { PactV3 as Pact } from '@pact-foundation/pact';
 import path from 'path';
-
-const Pact = pact.PactV3;
 
 export const CONSUMER_NAME = 'myConsumer';
 export const PROVIDER_NAME = 'myProvider';
