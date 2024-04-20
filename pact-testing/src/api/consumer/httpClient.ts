@@ -31,9 +31,9 @@ export const httpClient = async ({ ROUTE, method, body, headers, PORT }: HttpCli
     const response = await fetch(`http://localhost:${PORT}${ROUTE}`, options);
     let finalResponse: string | Record<string, unknown>;
     try {
-      finalResponse = await response.json()
+      finalResponse = await response.json();
     } catch (error) {
-      finalResponse = await response.text()
+      finalResponse = await response.text();
     }
 
     return {
@@ -41,6 +41,7 @@ export const httpClient = async ({ ROUTE, method, body, headers, PORT }: HttpCli
       body: finalResponse
     }
   } catch (error) {
-    throw error
+    console.error('httpClient error: ', error);
+    throw error;
   }
 }
