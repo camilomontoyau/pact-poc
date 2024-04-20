@@ -16,7 +16,7 @@ describe('Pact with myProvider', () => {
             "Content-Type": "application/json"
           },
           status: 200,
-          body: 'Hello World',
+          body: { message: 'Hello World' },
         }).given('there is a request to /api')
         .uponReceiving('a response from /api')
         .withRequest({
@@ -42,7 +42,9 @@ describe('Pact with myProvider', () => {
           PORT: mockServer.port,
         })).resolves.toEqual({ 
           status: 200, 
-          body: 'Hello World' 
+          body: {
+            message: 'Hello World'
+          }
         });
       });
     });
