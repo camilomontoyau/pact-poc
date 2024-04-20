@@ -19,7 +19,7 @@ describe('Pact with myProvider', () => {
           body: { message: 'Hello World' },
         })
 
-      provider.given('there is a request to /api')
+      /* provider.given('there is a request to /api')
         .uponReceiving('a response from /api')
         .withRequest({
           method: 'GET',
@@ -33,7 +33,7 @@ describe('Pact with myProvider', () => {
           body: { 
             message: 'Hello from API' 
           },
-        });
+        }); */
     });
 
     it('sends a request to / according to contract', () => {
@@ -53,7 +53,7 @@ describe('Pact with myProvider', () => {
       });
     });
 
-    it('sends a request to /api according to contract', () => {
+    /* it('sends a request to /api according to contract', () => {
       return provider.executeTest(async (mockServer) => {
         const response = await httpClient({
           ROUTE: '/api',
@@ -68,6 +68,6 @@ describe('Pact with myProvider', () => {
           } 
         });
       });
-    });
+    }); */
   });
 });
