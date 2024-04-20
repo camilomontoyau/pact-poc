@@ -4,7 +4,7 @@ import path from 'path';
 export const CONSUMER_NAME = 'myConsumer';
 export const PROVIDER_NAME = 'myProvider';
 
-export const pactFile = path.resolve(`./pacts/${CONSUMER_NAME}-${PROVIDER_NAME}.json`);
+export const pactFile = path.resolve(`./${CONSUMER_NAME}-${PROVIDER_NAME}.json`);
 
 export const provider = new Pact({
   dir: path.resolve(process.cwd(), 'pacts'),
