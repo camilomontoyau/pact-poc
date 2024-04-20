@@ -3,12 +3,12 @@ import path from 'path';
 const tags = ['dev'];
 
 // config for pact broker
-const PACT_BROKER_URL = process.env.PACT_BROKER_URL;
-const PACT_BROKER_PASSWORD = process.env.PACT_BROKER_PASSWORD;
-const PACT_BROKER_USERNAME = process.env.PACT_BROKER_USERNAME;
-const PACT_SHA = process.env.PACT_SHA;
-const PACT_BRANCH = process.env.PACT_BRANCH;
-const PACT_TAG = process.env.PACT_TAG;
+const PACT_BROKER_URL = process.env.PACT_BROKER_URL ?? 'http://localhost:9292';
+const PACT_BROKER_PASSWORD = process.env.PACT_BROKER_PASSWORD ?? 'password';
+const PACT_BROKER_USERNAME = process.env.PACT_BROKER_USERNAME ?? 'user';
+const PACT_SHA = process.env.PACT_SHA ?? '123456';
+const PACT_BRANCH = process.env.PACT_BRANCH ?? 'main';
+const PACT_TAG = process.env.PACT_TAG ?? 'latest';
 
 if (PACT_BRANCH) {
   tags.push(PACT_BRANCH);
@@ -19,7 +19,7 @@ if (PACT_TAG) {
 }
 
 let opts = {
-  providerBaseUrl: 'http://localhost:8080',
+  providerBaseUrl: 'http://localhost:3000',
   pactFilesOrDirs: [
     path.resolve(process.cwd(), 'pacts')
   ],
