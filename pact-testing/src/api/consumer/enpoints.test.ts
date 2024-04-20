@@ -35,12 +35,14 @@ describe('Pact with myProvider', () => {
     });
 
     it('sends a request to / according to contract', () => {
-      return provider.executeTest((mockServer) => {
-        return expect(httpClient({
+      return provider.executeTest(async (mockServer) => {
+        const response = await httpClient({
           ROUTE: '/',
           method: 'GET',
           PORT: mockServer.port,
-        })).resolves.toEqual({ 
+        });
+        console.log('response: ', response);
+        return expect(response).toEqual({ 
           status: 200, 
           body: {
             message: 'Hello World'
@@ -51,11 +53,12 @@ describe('Pact with myProvider', () => {
 
     it('sends a request to /api according to contract', () => {
       return provider.executeTest(async (mockServer) => {
-        return expect(httpClient({
+        const response = await httpClient({
           ROUTE: '/api',
           method: 'GET',
           PORT: mockServer.port,
-        })).resolves.toEqual({ 
+        });
+        return expect(response).toEqual({ 
           status: 200, 
           body: { 
             message: 'Hello from API' 
