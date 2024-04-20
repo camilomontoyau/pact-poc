@@ -26,9 +26,12 @@ export const httpClient = async ({ ROUTE, method, body, headers, PORT }: HttpCli
       ...headers
     }
   }
+
+  const url = `http://localhost:${PORT}${ROUTE}`;
+  console.log('url: ', url);
   
   try {
-    const response = await fetch(`http://localhost:${PORT}${ROUTE}`, options);
+    const response = await fetch(url, options);
     let finalResponse: string | Record<string, unknown>;
     try {
       finalResponse = await response.json();
