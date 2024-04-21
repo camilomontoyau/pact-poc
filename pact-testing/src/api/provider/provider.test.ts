@@ -1,6 +1,6 @@
 import { Verifier } from '@pact-foundation/pact';
 
-import { PROVIDER_NAME, pactFile, CONSUMER_NAME, consumerVersion } from '../pact';
+import { PROVIDER_NAME, consumerVersion } from '../pact';
 
 import { app } from '../../server';
 
@@ -27,7 +27,7 @@ describe('Pact verfication', ()=>{
     return await new Verifier({
       provider: PROVIDER_NAME,
       providerBaseUrl: `http://${HOST_NAME}:${PORT}`,
-      pactUrls: ['http://localhost:9292/pacts/provider/myProvider/consumer/myConsumer/version/123456'],
+      pactUrls: [`http://localhost:9292/pacts/provider/myProvider/consumer/myConsumer/version/${consumerVersion}`],
       pactBrokerUrl: PACT_BROKER_URL,
       pactBrokerUsername: PACT_BROKER_USERNAME,
       pactBrokerPassword: PACT_BROKER_PASSWORD,
