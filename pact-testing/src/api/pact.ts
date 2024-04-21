@@ -11,6 +11,7 @@ export const provider = new Pact({
   logLevel: 'info',
   consumer: CONSUMER_NAME,
   provider: PROVIDER_NAME,
+  
 });
 
 export const consumerVersion = '1.0.0';
