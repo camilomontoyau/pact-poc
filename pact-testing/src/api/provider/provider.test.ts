@@ -1,7 +1,6 @@
 import { Verifier } from '@pact-foundation/pact';
 import axios from 'axios';
-import { PROVIDER_NAME, consumerVersion } from '../pact';
-
+import { PROVIDER_NAME } from '../pact';
 import { app } from '../../server';
 
 const HOST_NAME = 'localhost';
@@ -23,10 +22,24 @@ describe('Pact verfication', ()=>{
   })
 
   it('should validate the pact', async () => {
+    // get provider pacts
+    const { data } = await axios.get(
+      `${PACT_BROKER_URL}/pacts/provider/${PROVIDER_NAME}`, 
+      {
+        auth: {
+          username: PACT_BROKER_USERNAME,
+          password: PACT_BROKER_PASSWORD
+        }
+      }
+    );
+    console.log(JSON.stringify({data}, null, 2));
+    const pactUrls = data._links['pb:pacts'].map((pact: any) => pact.href);
+    console.log(JSON.stringify({pactUrls}, null, 2));
+
     return await new Verifier({
       provider: PROVIDER_NAME,
       providerBaseUrl: `http://${HOST_NAME}:${PORT}`,
-      pactUrls: [`http://localhost:9292/pacts/provider/myProvider/consumer/myConsumer/version/${consumerVersion}`],
+      pactUrls,
       pactBrokerUrl: PACT_BROKER_URL,
       pactBrokerUsername: PACT_BROKER_USERNAME,
       pactBrokerPassword: PACT_BROKER_PASSWORD,
