@@ -14,4 +14,4 @@ export const provider = new Pact({
   
 });
 
-export const consumerVersion = '1.0.0';
+export const consumerVersion = '123456';
