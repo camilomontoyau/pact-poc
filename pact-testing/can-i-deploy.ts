@@ -6,6 +6,8 @@ const PACT_BROKER_PASSWORD = process.env.PACT_BROKER_PASSWORD ?? 'password';
 const PACT_BROKER_USERNAME = process.env.PACT_BROKER_USERNAME ?? 'user';
 const CONSUMER = process.env.CONSUMER ?? 'myConsumer' ;
 const CONSUMER_VERSION = process.env.CONSUMER_VERSION ?? '123456';
+const PROVIDER = process.env.PROVIDER ?? 'myProvider';
+const PROVIDER_VERSION = process.env.PROCESS_VERSION ?? 'abcdef'
 
 console.log('here');
 pact.canDeploy({
@@ -13,6 +15,10 @@ pact.canDeploy({
     {
       name: CONSUMER,
       version: CONSUMER_VERSION,
+    },
+    {
+      name: PROVIDER,
+      version: PROVIDER_VERSION,
     }
   ],
   pactBroker: PACT_BROKER_URL,
