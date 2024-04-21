@@ -4,14 +4,14 @@ import pact from '@pact-foundation/pact-node';
 const PACT_BROKER_URL = process.env.PACT_BROKER_URL ?? 'http://localhost:9292';
 const PACT_BROKER_PASSWORD = process.env.PACT_BROKER_PASSWORD ?? 'password';
 const PACT_BROKER_USERNAME = process.env.PACT_BROKER_USERNAME ?? 'user';
-const PACTICIPANT = process.env.PACTICIPANT;
-const PACTICIPANT_VERSION = process.env.PACTICIPANT_VERSION;
-const TARGET_ENV = process.env.TARGET_ENV;
+const PACTICIPANT = process.env.PACTICIPANT ?? 'myConsumer' ;
+const PACTICIPANT_VERSION = process.env.PACTICIPANT_VERSION ;
 
-const opts = {
+console.log('here');
+pact.canDeploy({
   pacticipants: [
     {
-      pacticipant: PACTICIPANT,
+      name: PACTICIPANT,
       version: PACTICIPANT_VERSION
     }
   ],
@@ -20,10 +20,8 @@ const opts = {
   pactBrokerPassword: PACT_BROKER_PASSWORD,
   output: 'json',
   retryWhileUnknown: 5,
-  retryInterval: 10
-};
-console.log('here');
-pact.canDeploy(opts).then((result) => {
+  retryInterval: 10,
+}).then((result) => {
   console.log(JSON.stringify({ result }, null, 2));
   console.log('it succeeded');
 }).catch((error) => {
