@@ -4,15 +4,15 @@ import pact from '@pact-foundation/pact-node';
 const PACT_BROKER_URL = process.env.PACT_BROKER_URL ?? 'http://localhost:9292';
 const PACT_BROKER_PASSWORD = process.env.PACT_BROKER_PASSWORD ?? 'password';
 const PACT_BROKER_USERNAME = process.env.PACT_BROKER_USERNAME ?? 'user';
-const PACTICIPANT = process.env.PACTICIPANT ?? 'myConsumer' ;
-const PACTICIPANT_VERSION = process.env.PACTICIPANT_VERSION ?? '123456';
+const CONSUMER = process.env.CONSUMER ?? 'myConsumer' ;
+const CONSUMER_VERSION = process.env.CONSUMER_VERSION ?? '123456';
 
 console.log('here');
 pact.canDeploy({
   pacticipants: [
     {
-      name: PACTICIPANT,
-      version: PACTICIPANT_VERSION,
+      name: CONSUMER,
+      version: CONSUMER_VERSION,
     }
   ],
   pactBroker: PACT_BROKER_URL,
