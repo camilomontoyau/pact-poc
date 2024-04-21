@@ -1,5 +1,5 @@
 import { Verifier } from '@pact-foundation/pact';
-
+import axios from 'axios';
 import { PROVIDER_NAME, consumerVersion } from '../pact';
 
 import { app } from '../../server';
@@ -11,7 +11,6 @@ const PACT_BROKER_PASSWORD = process.env.PACT_BROKER_PASSWORD ?? 'password';
 const PACT_BROKER_USERNAME = process.env.PACT_BROKER_USERNAME ?? 'user';
 
 let server: any;
-
 
 describe('Pact verfication', ()=>{
   beforeAll(()=> {
