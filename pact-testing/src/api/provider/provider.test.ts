@@ -3,9 +3,11 @@ import { Verifier } from '@pact-foundation/pact';
 import { PROVIDER_NAME, pactFile } from '../pact';
 
 import { app } from '../../server';
+import exp from 'constants';
 
 const HOST_NAME = 'localhost';
 const PORT = 3000;
+const PACT_BROKER_URL = process.env.PACT_BROKER_URL ?? 'http://localhost:9292';
 
 let server: any;
 
@@ -29,8 +31,10 @@ describe('Pact verfication', ()=>{
     .then(output => {
       console.log('Pact Verification Complete!')
       console.log(output)
+      expect(output).toBe('finished: 0')
     })
     .catch(e => {
+      expect(e).toBeFalsy();
       console.log('Pact Verification Failed!')
       console.log(e)
     })
