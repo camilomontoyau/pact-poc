@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit -i",
     "pact:publish": "tsx ./publish.ts",
-    "pact:can-i-deplot": "tsx ./can-i-deploy.ts"
+    "pact:can-i-deploy": "tsx ./can-i-deploy.ts"
   },
   "keywords": [],
   "author": "",
