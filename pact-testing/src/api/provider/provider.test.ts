@@ -4,9 +4,6 @@ import { PROVIDER_NAME, pactFile } from '../pact';
 
 import { app } from '../../server';
 
-
-
-
 const HOST_NAME = 'localhost';
 const PORT = 3000;
 
