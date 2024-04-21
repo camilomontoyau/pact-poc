@@ -7,17 +7,20 @@ import { app } from '../../server';
 
 
 
-const HOST_NAME = '127.0.0.1';
+const HOST_NAME = 'localhost';
 const PORT = 3000;
 
+let server: any;
+
+
 describe('Pact verfication', ()=>{
-  before(()=> {
-    app.listen(PORT, HOST_NAME, ()=>{
+  beforeAll(()=> {
+    server = app.listen(PORT, HOST_NAME, ()=>{
       console.log(`Server is running on http://${HOST_NAME}:${PORT}`);
     })
   })  
-  after(()=> {
-    app.close();
+  afterAll(()=> {
+    server.close();
   })
 
   it('should validate the pact', async () => {
