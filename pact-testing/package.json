@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit -i",
     "pact:publish": "tsx ./publish.ts",
-    "pact:can-i-deploy": "tsx ./can-i-deploy.ts"
+    "pact:can-i-deploy": "tsx ./can-i-deploy.ts",
+    "dev": "NODE_ENV=local npm install && tsx watch ./src/index.ts"
   },
   "keywords": [],
   "author": "",
