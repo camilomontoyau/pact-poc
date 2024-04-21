@@ -9,6 +9,7 @@ const PACT_BROKER_USERNAME = process.env.PACT_BROKER_USERNAME ?? 'user';
 const PACT_SHA = process.env.PACT_SHA ?? '123456';
 const PACT_BRANCH = process.env.PACT_BRANCH ?? 'main';
 const PACT_TAG = process.env.PACT_TAG ?? 'latest';
+const PROVIDER_VERSION = process.env.PROVIDER_VERSION ?? 'abcde';
 
 if (PACT_BRANCH) {
   tags.push(PACT_BRANCH);
@@ -25,6 +26,7 @@ let opts = {
   ],
   pactBroker: PACT_BROKER_URL,
   consumerVersion: PACT_SHA,
+  providerVersion: PROVIDER_VERSION,
   pactBrokerUsername: PACT_BROKER_USERNAME,
   pactBrokerPassword: PACT_BROKER_PASSWORD,
   tags
